@@ -1,0 +1,154 @@
+// ** Global Mixins
+// Clearfix
+@mixin clearfix() {
+	*zoom:1;
+	&:before,
+	&:after {
+		display:table;
+		content:'';
+	}
+	&:after {
+		clear:both;
+	}
+}
+
+// Center box
+@mixin center-box() {
+	display:block;
+	margin-right:auto;
+	margin-left:auto;
+}
+
+// Screen readers only
+@mixin sr-only() {
+	position:absolute;
+	overflow:hidden;
+	width:1px;
+	height:1px;
+	margin:-1px;
+	padding:0;
+	border:0;
+	clip:rect(0, 0, 0, 0);
+}
+@mixin size($width, $height) {
+	width:$width;
+	height:$height;
+}
+@mixin square($size) {
+	@include size($size, $size);
+}
+@mixin text-overflow() {
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+}
+
+// ** CSS3 Properties
+// Box sizing
+@mixin box-sizing($boxmodel) {
+	-webkit-box-sizing:$boxmodel;
+	-moz-box-sizing:$boxmodel;
+	box-sizing:$boxmodel;
+}
+
+// opacity
+@mixin opacity($opacity) {
+	opacity:$opacity;
+	// IE8 filter
+	$opacity-ie:($opacity * 100);
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$opacity-ie})"; // IE8
+	filter:alpha(opacity=#{$opacity-ie}); // IE5-7
+	*zoom:1;
+}
+// Drop shadow
+@mixin box-shadow($shadow...) {
+	-webkit-box-shadow:$shadow;
+	box-shadow:$shadow;
+}
+
+// Border radius
+@mixin border-top-radius($radius) {
+	border-top-right-radius:$radius;
+	border-top-left-radius:$radius;
+}
+@mixin border-right-radius($radius) {
+	border-top-right-radius:$radius;
+	border-bottom-right-radius:$radius;
+}
+@mixin border-bottom-radius($radius) {
+	border-bottom-right-radius:$radius;
+	border-bottom-left-radius:$radius;
+}
+@mixin border-left-radius($radius) {
+	border-top-left-radius:$radius;
+	border-bottom-left-radius:$radius;
+}
+@mixin border-radius($radius) {
+	border-radius:$radius;
+}
+
+// Gradient
+@mixin gradient-vertical($start-color, $end-color) {}
+
+// Transition
+@mixin transition($transition...) {
+	-webkit-transition:$transition;
+	-moz-transition:$transition;
+	-o-transition:$transition;
+	transition:$transition;
+}
+@mixin transition-option($options, $transitions) {
+	-webkit-transition-#{$options}:$transitions;
+	-moz-transition-#{$options}:$transitions;
+	-o-transition-#{$options}:$transitions;
+	transition-#{$options}:$transitions;
+}
+@mixin transition-property($property...) {
+	@include transition-option('property', $property);
+}
+@mixin transition-delay($delay...) {
+	@include transition-option('delay', $delay);
+}
+@mixin transition-duration($duration...) {
+	@include transition-option('duration', $duration);
+}
+@mixin transition-transform($transform...) {
+	@include transition-option('transform', $transform);
+}
+
+// Transform
+@mixin transform($transforms) {
+	-webkit-transform:$transforms;
+	-moz-transform:$transforms;
+	-ms-transform:$transforms;
+	-o-transform:$transforms;
+	transform:$transforms;
+}
+@mixin rotate($deg) {
+	@include transform(rotate(#{$deg}deg));
+}
+@mixin rotateX($deg) {
+	@include transform(rotateX(#{$deg}deg));
+}
+@mixin rotateY($deg) {
+	@include transform(rotateY(#{$deg}deg));
+}
+@mixin scale($scale) {
+	@include transform(scale($scale));
+}
+@mixin translate($x, $y) {
+	@include transform(translate($x, $y));
+}
+@mixin translate3d($x, $y, $z) {
+	@include transform(translate3d($x, $y, $z));
+}
+@mixin skew($x, $y) {
+	@include transform(skew(#{$x}deg, #{$y}deg));
+}
+@mixin transform-origin($origin) {
+	-webkit-transform-origin:$origin;
+	-moz-transform-origin:$origin;
+	-ms-transform-origin:$origin;
+	-o-transform-origin:$origin;
+	transform-origin:$origin;
+}

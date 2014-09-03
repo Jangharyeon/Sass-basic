@@ -1,0 +1,98 @@
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,textarea,p,blockquote,th,td,input,select,button {
+	margin:0;
+	padding:0;
+}
+fieldset {
+	border:0;
+}
+legend {
+	@include sr-only();
+}
+dl,
+ul,
+ol {
+	list-style:none;
+}
+blockquote,
+q {
+	quotes:none;
+}
+blockquote:before,
+blockquote:after,
+p:before,
+p:after {
+	content:'';
+	content:none;
+}
+input,
+select,
+optgroup,
+textarea,
+button,
+img {
+	vertical-align:middle;
+}
+img {
+	border:0;
+}
+button {
+	overflow:visible;
+	border:0;
+	background-color:transparent;
+	cursor:pointer;
+}
+button[disabled],
+html input[disabled] {
+	cursor:default;
+}
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+	border:0;
+	padding:0;
+}
+input[type="checkbox"],
+input[type="radio"] {
+	*width:13px;
+	*height:13px;
+	padding:0;
+	box-sizing:border-box;
+}
+html {
+	height:100%;
+}
+body,
+th,
+td,
+input,
+select,
+textarea,
+button {
+	font-family:$font-family-dotum;
+	font-size:$font-size-default;
+	line-height:$line-height-default;
+	color:$color-default;
+}
+body {
+	min-width:initial !important;
+	min-height:100%;
+	background-color:$background-color-default;
+}
+table {
+	width:100%;
+	border-collapse:collapse;
+	border-spacing:0;
+}
+a {
+	color:$link-color-default;
+	text-decoration:none;
+}
+a:hover,
+a:focus {
+	color:darken($link-color-default, 10%);
+	text-decoration:underline;
+}
+a:focus {
+	outline:thin dotted;
+	outline:5px auto -webkit-focus-ring-color;
+	outline-offset:-2px;
+}

@@ -1,0 +1,55 @@
+// ** Default value
+$background-color-default : #fff !default;
+$font-family-default : '돋움', dotum, sans-serif !default;
+$font-size-default : 12px !default;
+$color-default : #393939 !default;
+$link-color-default : #4183c4 !default;
+$line-height-default : 1.5 !default;
+
+// ** Font family
+$font-family-dotum : '돋움', dotum, sans-serif !default;
+$font-family-apple : 'Apple SD Gothic NEO',helvetica,sans-serif !default;
+$font-family-tahoma : tahoma;
+
+// ** Font size
+$font-size-sm : 11px !default;
+$font-size-md : 12px !default;
+$font-size-lg : 14px !default;
+$font-size-xl : 16px !default;
+
+// ** Color
+$color-gray-dark : #393939 !default;
+$color-gray : #666 !default;
+$color-gray-light : #888 !default;
+$color-red : #ff140a !default;
+
+// ** Border-color
+$border-color-default : #ccc !default;
+
+// ** Background-color
+
+// ** Media queries breakpoints
+// Extra small screen / phone
+$screen-xs: 480px !default;
+$screen-xs-min: $screen-xs !default;
+$screen-phone: $screen-xs-min !default;
+
+// Small screen / tablet
+$screen-sm:	768px !default;
+$screen-sm-min:	$screen-sm !default;
+$screen-tablet:	$screen-sm-min !default;
+
+// Medium screen / desktop
+$screen-md: 992px !default;
+$screen-md-min:	$screen-md !default;
+$screen-desktop: $screen-md-min !default;
+
+// Large screen / wide desktop
+$screen-lg:	1200px !default;
+$screen-lg-min:	$screen-lg !default;
+$screen-desktop: $screen-lg-min !default;
+
+// Media queries don't overlap
+$screen-xs-max:	($screen-sm-min -1) !default;
+$screen-sm-max:	($screen-md-min -1) !default;
+$screen-md-max:	($screen-lg-min -1) !default;

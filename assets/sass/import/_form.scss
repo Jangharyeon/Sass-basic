@@ -1,0 +1,278 @@
+// ** Variables
+
+// ** Mixins
+
+// ** Form style
+// Form default
+label {
+	max-width:100%;
+}
+select[multiple],
+select[size] {
+	height:auto;
+}
+select:-moz-focusring {
+	color:transparent;
+	text-shadow:0 0 0 #666;
+}
+input[type="file"]:focus,
+input[type="radio"]:focus,
+input[type="checkbox"]:focus {
+	outline:thin dotted;
+	outline:5px auto -webkit-focus-ring-color;
+	outline-offset:-2px;
+}
+// Text field
+.wrap-text-field {
+	padding-right:20px;
+	@include clearfix();
+	.text-field {
+		display:block;
+		width:100%;
+	}
+	.table & {
+		// Table 내에 텍스트 이외(.text-field, .button) 들어올 경우 하단여백
+		margin-bottom:3px;
+	}
+}
+.text-field {
+	display:inline-block;
+	width:100px;
+	height:18px;
+	padding:4px 9px 1px;
+	border:1px solid #ccc;
+	background-color:#fff;
+	background-image:none;
+	font-size:12px;
+	color:#666;
+	line-height:18px;
+	-webkit-transition:border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+	transition:border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+select.text-field {
+	/* ie7은 높이값 적용 안됨 */
+	width:100%;
+	height:25px;
+	*height:auto !important;
+	padding-top:0;
+	padding-right:0;
+	padding-bottom:0;
+	-webkit-border-radius:0;
+	border-radius:0;
+	background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeD0iMTJweCIgeT0iMHB4IiB3aWR0aD0iMjRweCIgaGVpZ2h0PSIzcHgiIHZpZXdCb3g9IjAgMCA2IDMiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDYgMyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PHBvbHlnb24gcG9pbnRzPSI1Ljk5MiwwIDIuOTkyLDMgLTAuMDA4LDAgIi8+PC9zdmc+);
+	background-position:100% 50%;
+	background-repeat:no-repeat;
+	-webkit-appearance:none;
+}
+.text-field:hover,
+.text-field:focus {
+	border-color:#bbb;
+}
+.text-field[disabled]:hover,
+.text-field[disabled]:focus {
+	border-color:#ccc;
+}
+.text-field::-moz-placeholder {
+	color:#aaa;
+	opacity:1;
+}
+.text-field:-ms-input-placeholder {
+	color:#aaa;
+}
+.text-field::-webkit-input-placeholder {
+	color:#aaa;
+}
+.text-field:focus {
+	border-color:#999;
+	outline:0;
+	-webkit-box-shadow:0 0 4px rgba(0, 0, 0, .2);
+	box-shadow:0 0 4px rgba(0, 0, 0, .2);
+}
+.text-field[disabled],
+.text-field[readonly],
+fieldset[disabled] .text-field {
+	background-color:#f7f7f7;
+	color:#aaa;
+	cursor:not-allowed;
+	opacity:1;
+}
+textarea.text-field {
+	height:auto;
+}
+.text-field-static {
+	padding:4px 0 3px;
+	line-height:18px;
+}
+/* Radio & Checkbox */
+.radio,
+.checkbox {
+	display:block;
+	min-height:18px;
+}
+.radio label,
+.checkbox label,
+.radio-inline,
+.checkbox-inline {
+	display:inline-block;
+	position:relative;
+	padding-left:18px;
+	font-weight:normal;
+	color:#666;
+	vertical-align:middle;
+	cursor:pointer;
+}
+.radio input[type="radio"],
+.radio-inline input[type="radio"],
+.checkbox input[type="checkbox"],
+.checkbox-inline input[type="checkbox"] {
+	position:absolute;
+	top:1px;
+	left:0;
+}
+/* Input disabled */
+input[type="radio"][disabled],
+input[type="checkbox"][disabled],
+.radio label[disabled],
+.radio-inline[disabled],
+.checkbox label[disabled],
+.checkbox-inline[disabled],
+fieldset[disabled] input[type="radio"],
+fieldset[disabled] input[type="checkbox"],
+fieldset[disabled] .radio label,
+fieldset[disabled] .radio-inline,
+fieldset[disabled] .checkbox label,
+fieldset[disabled] .checkbox-inline{
+	color:#aaa;
+	cursor:not-allowed;
+}
+/* Input size xs */
+select.input-xs {
+	height:19px;
+}
+/* Input size medium*/
+.input-md,
+.form-horizontal .form-group-md .text-field {
+	padding-top:8px;
+	padding-bottom:5px;
+}
+select.input-md {
+	height:33px;
+}
+textarea.input-md,
+select[multiple].input-md {
+	height:auto;
+}
+/* Input size large*/
+.input-lg,
+.form-horizontal .form-group-lg .text-field {
+	padding-top:12px;
+	padding-bottom:9px;
+}
+select.input-lg {
+	height:41px;
+}
+textarea.input-lg,
+select[multiple].input-md {
+	height:auto;
+}
+/* IE8 hack - selectbox text align */
+@media \0screen {
+	select.text-field {
+		padding-top:3px;
+		padding-right:3px;
+		padding-bottom:2px;
+	}
+	select.input-xs {
+		padding-top:1px;
+		padding-bottom:1px;
+	}
+	select.input-md {
+		padding-top:7px;
+		padding-bottom:6px;
+	}
+	select.input-lg {
+		padding-top:11px;
+		padding-bottom:10px;
+	}
+}
+/* Firefox hack - selectbox text align */
+@-moz-document url-prefix() {
+	select.text-field {
+		padding-top:4px;
+		padding-bottom:1px;
+	}
+	select.input-xs {
+		padding-top:1px;
+		padding-bottom:1px;
+	}
+	select.input-md {
+		padding-top:8px;
+		padding-bottom:5px;
+	}
+	select.input-lg {
+		padding-top:12px;
+		padding-bottom:9px;
+	}
+}
+/* Form group */
+.form-group {
+	*zoom:1;
+}
+.form-group:before,
+.form-group:after {
+	display:table;
+	content:'';
+}
+.form-group:after {
+	clear:both;
+}
+.form-group .wrap-text-field {
+	padding-right:0;
+}
+.form-group .text-field {
+	display:inline-block;
+	width:auto;
+}
+.form-group .text-hyphen {
+	display:inline-block;
+	min-width:6px;
+	padding-left:1px;
+	color:#666;
+	text-align:center;
+}
+.help-block {
+	display:block;
+	margin-top:8px;
+	color:#888;
+}
+span.help-block {
+	display:inline;
+	margin-top:0;
+}
+.help-block-sm {
+	font-size:11px;
+}
+/* Form horizontal */
+.form-horizontal .control-label {
+	padding-top:5px;
+}
+.form-horizontal .form-group-md  .control-label {
+	padding-top:9px;
+}
+.form-horizontal .form-group-lg  .control-label {
+	padding-top:13px;
+}
+.form-horizontal .form-field-full .wrap-text-field {
+	overflow:hidden;
+	float:none;
+	width:auto;
+	padding-right:20px;
+}
+.form-horizontal .form-field-full .wrap-text-field .text-field {
+	width:100%;
+}
+/* Form padding default */
+.text-field + .button {
+	margin-left:1px;
+	*margin-left:5px;
+}

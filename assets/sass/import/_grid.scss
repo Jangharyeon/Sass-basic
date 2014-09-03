@@ -1,0 +1,181 @@
+// ** Variables
+$grid-columns: 12 !default;
+$grid-columns-ie7: ($grid-columns / 4);
+
+// ** Mixins
+@mixin make-xs-column($columns) {
+	position:relative;
+	float:left;
+	width:percentage($columns / $grid-columns);
+	min-height:1px;
+}
+@mixin make-xs-columns-offset($columns) {
+	@media (min-width: $screen-xs-min) {
+		margin-left:percentage(($columns / $grid-columns));
+	}
+}
+@mixin make-xs-columns-push($columns) {
+	@media (min-width: $screen-xs-min) {
+		left:percentage(($columns / $grid-columns));
+	}
+}
+@mixin make-xs-columns-pull($columns) {
+	@media (min-width: $screen-xs-min) {
+		right:percentage(($columns / $grid-columns));
+	}
+}
+
+@mixin make-sm-columns($columns) {
+	position:relative;
+	min-height:1px;
+	@media (min-width: $screen-sm-min) {
+		float:left;
+		width:percentage(($columns / $grid-columns));
+	}
+}
+@mixin make-sm-columns-offset($columns) {
+	@media (min-width: $screen-sm-min) {
+		margin-left:percentage(($columns / $grid-columns));
+	}
+}
+@mixin make-sm-columns-push($columns) {
+	@media (min-width: $screen-sm-min) {
+		left:percentage(($columns / $grid-columns));
+	}
+}
+@mixin make-sm-columns-pull($columns) {
+	@media (min-width: $screen-sm-min) {
+		right:percentage(($columns / $grid-columns));
+	}
+}
+
+@mixin make-md-columns($columns) {
+	position:relative;
+	min-height:1px;
+	@media (min-width: $screen-md-min) {
+		float:left;
+		width:percentage(($columns / $grid-columns));
+	}
+}
+@mixin make-md-columns-offset($columns) {
+	@media (min-width: $screen-md-min) {
+		margin-left:percentage(($columns / $grid-columns));
+	}
+}
+@mixin make-md-columns-push($columns) {
+	@media (min-width: $screen-md-min) {
+		left:percentage(($columns / $grid-columns));
+	}
+}
+@mixin make-md-columns-pull($columns) {
+	@media (min-width: $screen-md-min) {
+		right:percentage(($columns / $grid-columns));
+	}
+}
+
+@mixin make-lg-columns($columns) {
+	position:relative;
+	min-height:1px;
+	@media (min-width: $screen-lg-min) {
+		float:left;
+		width:percentage(($columns / $grid-columns));
+	}
+}
+@mixin make-lg-columns-offset($columns) {
+	@media (min-width: $screen-lg-min) {
+		margin-left:percentage(($columns / $grid-columns));
+	}
+}
+@mixin make-lg-columns-push($columns) {
+	@media (min-width: $screen-lg-min) {
+		left:percentage(($columns / $grid-columns));
+	}
+}
+@mixin make-lg-columns-pull($columns) {
+	@media (min-width: $screen-lg-min) {
+		right:percentage(($columns / $grid-columns));
+	}
+}
+
+@mixin make-grid-columns() {
+	$list: '';
+	$i: 1;
+	$list: '.col-xs-#{$i}, .col-sm-#{$i}, .col-md-#{$i}, .col-lg-#{$i}';
+	@for $i from (1 +1) through $grid-columns {
+		$list: '#{$list}, .col-xs-#{$i}, .col-sm-#{$i}, .col-md-#{$i}, .col-lg-#{$i}';
+	}
+	#{$list} {
+		position:relative;
+		min-height:1px;
+	}
+}
+@mixin float-grid-columns($class) {
+	$list: '';
+	$i: 1;
+	$list: '.col-#{$class}-#{$i}';
+	@for $i from (1 + 1) through $grid-columns {
+		$list: '#{$list}, .col-#{$class}-#{$i}';
+	}
+	#{$list} {
+		float:left;
+	}
+}
+@mixin calc-grid-columns($index, $class, $type) {
+	@if ($index > 0) {
+		$basic-percent:percentage(($index / $grid-columns));
+		$type-property:'';
+		@if ($type == push){
+			$type-property:left;
+		}
+		@if ($type == pull) {
+			$type-property:right;
+		}
+		@if ($type == offset) {
+			$type-property:margin-left;
+		}
+		@if ($type == width){
+			.col-#{$class}-#{$index} {
+				width:$basic-percent;
+				@if ($index % $grid-columns-ie7 == 0 and $index != $grid-columns ) {
+					*width:$basic-percent - 0.00001;
+				}
+			}
+		} @else {
+			.col-#{$class}-#{$type}-#{$index} {
+				#{$type-property}:$basic-percent;
+				@if ($index % $grid-columns-ie7 == 0 and $index != $grid-columns) {
+					*#{$type-property}:$basic-percent - 0.00001;
+				}
+			}
+		}
+	}
+}
+@mixin loop-grid-columns($columns, $class, $type) {
+	@for $i from 0 through $columns {
+		@include calc-grid-columns($i, $class, $type);
+	}
+}
+@mixin make-grid($class) {
+	@include float-grid-columns($class);
+	@include loop-grid-columns($grid-columns, $class, width);
+	@include loop-grid-columns($grid-columns, $class, pull);
+	@include loop-grid-columns($grid-columns, $class, push);
+	@include loop-grid-columns($grid-columns, $class, offset);
+}
+
+// ** Grid system
+
+.row {
+	@include clearfix();
+}
+@include make-grid-columns();
+@include make-grid(xs);
+@media (min-width: $screen-sm-min) {
+	@include make-grid(sm);
+}
+@media (min-width: $screen-md-min) {
+	@include make-grid(md);
+}
+@media (min-width: $screen-lg-min) {
+	@include make-grid(lg);
+}

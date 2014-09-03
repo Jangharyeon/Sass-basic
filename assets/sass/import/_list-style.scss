@@ -1,0 +1,42 @@
+// ** Variables
+$ico-url-path : '../images/';
+
+// ** Mixins
+@mixin image-url-path($image) {
+	background-image:url($ico-url-path + $image);
+}
+
+// ** List style
+.dot-dark-gray,
+.dot-gray,
+.dot-light-gray,
+.list-dot-dark-gray li,
+.list-dot-gray li,
+.list-dot-light-gray li {
+	padding-left:7px;
+	background-repeat:no-repeat;
+	background-position:0 7px;
+	font-size:$font-size-md;
+	line-height:18px;
+}
+.dot-dark-gray,
+.list-dot-dark-gray > li {
+	@include image-url-path('ico-dot-dark-gray.png');
+	color:$color-gray-dark;
+}
+.dot-gray,
+.list-dot-gray > li {
+	@include image-url-path('ico-dot-gray.png');
+	color:$color-gray;
+}
+.dot-light-gray,
+.list-dot-light-gray > li {
+	@include image-url-path('ico-dot-light-gray.png');
+	color:$color-gray-light;
+}
+.ico-dot-sm,
+.list-dot-sm > li {
+	background-position:0 6px;
+	font-size:$font-size-sm;
+	line-height:16px;
+}
