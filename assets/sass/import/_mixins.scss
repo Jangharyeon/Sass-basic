@@ -88,9 +88,7 @@
 }
 
 // Gradient
-@mixin gradient-vertical($start-color, $end-color) {
-	
-}
+@mixin gradient-vertical($start-color, $end-color) {}
 
 // Transition
 @mixin transition($transition...) {
