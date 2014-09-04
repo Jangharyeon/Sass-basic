@@ -43,15 +43,14 @@
 	white-space:nowrap;
 }
 
-// ** CSS3 Properties
-// Box sizing
+// ** Box sizing
 @mixin box-sizing($boxmodel) {
 	-webkit-box-sizing:$boxmodel;
 	-moz-box-sizing:$boxmodel;
 	box-sizing:$boxmodel;
 }
 
-// opacity
+// ** opacity
 @mixin opacity($opacity) {
 	opacity:$opacity;
 	// IE8 filter
@@ -60,13 +59,13 @@
 	filter:alpha(opacity=#{$opacity-ie}); // IE5-7
 	*zoom:1;
 }
-// Drop shadow
+// ** Drop shadow
 @mixin box-shadow($shadow...) {
 	-webkit-box-shadow:$shadow;
 	box-shadow:$shadow;
 }
 
-// Border radius
+// ** Border radius
 @mixin border-top-radius($radius) {
 	border-top-right-radius:$radius;
 	border-top-left-radius:$radius;
@@ -87,36 +86,88 @@
 	border-radius:$radius;
 }
 
-// Gradient
-@mixin gradient-vertical($start-color, $end-color) {}
+// ** Gradient
+// Vertical gradient, from top to bottom
+@mixin gradient-vertical($start-color: #fff, $end-color: #f9f9f9, $solid-color:#fafafa, $start-percent: 0%, $end-percent: 100%) {
+	// $start-color, $end-color, $solid-color 기본 색상은 그대로 사용하면서 percent만 변경하고 싶을때 아래 예시와 같이 사용
+	// 예 ) @include gradient-vertical(null, null, null, 10%, 90%);
+	@if ($start-color == null) {
+		$start-color: #fff;
+	}
+	@if ($end-color == null) {
+		$end-color: #f9f9f9;
+	}
+	@if ($solid-color == null) {
+		$solid-color: #fafafa;
+	}
+	background-color:$solid-color; // Old browser
+	background-image:-webkit-gradient(linear, left top, left bottom, color-stop($start-percent, $start-color), color-stop($end-percent, $end-color)); // Chrome, Safari4+
+	background-image:-webkit-linear-gradient(top, $start-color $start-percent, $end-color $end-percent); // Chrome10+, Safari5.1+
+	background-image:-moz-linear-gradient(top, $start-color $start-percent, $end-color $end-percent); // Firefox 3.6+
+	background-image:-ms-linear-gradient(top, $start-color $start-percent, $end-color $end-percent); // IE 10+
+	background-image:-o-linear-gradient(top, $start-color $start-percent, $end-color $end-percent); // Opera 11.10+
+	background-image:linear-gradient(to bottom, $start-color $start-percent, $end-color $end-percent); // Standard, IE 10+, Firefox 16+, Opera 12.10+, Safari 7+, Chrome 26+
+	background-repeat:repeat-x;
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($start-color)}', endColorstr='#{ie-hex-str($end-color)}', GradientType=0); // IE 6-9
+}
+// Horizontal gradient, from left to right
+@mixin gradient-horizontal($start-color: #fff, $end-color: #f9f9f9, $solid-color:#fafafa, $start-percent: 0%, $end-percent: 100%) {
+	// $start-color, $end-color, $solid-color 기본 색상은 그대로 사용하면서 percent만 변경하고 싶을때 아래 예시와 같이 사용
+	// 예 ) @include gradient-horizontal(null, null, null, 10%, 90%);
+	@if ($start-color == null) {
+		$start-color: #fff;
+	}
+	@if ($end-color == null) {
+		$end-color: #f9f9f9;
+	}
+	@if ($solid-color == null) {
+		$solid-color: #fafafa;
+	}
+	background-color:$solid-color; // Old browser
+	background-image:-webkit-gradient(linear, left top, right top, color-stop($start-percent, $start-color), color-stop($end-percent, $end-color)); // Chrome, Safari4+
+	background-image:-webkit-linear-gradient(left, $start-color $start-percent, $end-color $end-percent); // Chrome10+, Safari5.1+
+	background-image:-moz-linear-gradient(left, $start-color $start-percent, $end-color $end-percent); // Firefox 3.6+
+	background-image:-ms-linear-gradient(left, $start-color $start-percent, $end-color $end-percent); // IE 10+
+	background-image:-o-linear-gradient(left, $start-color $start-percent, $end-color $end-percent); // Opera 11.10+
+	background-image:linear-gradient(to right, $start-color $start-percent, $end-color $end-percent); // Standard, IE 10+, Firefox 16+, Opera 12.10+, Safari 7+, Chrome 26+
+	background-repeat:repeat-x;
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($start-color)}', endColorstr='#{ie-hex-str($end-color)}', GradientType=1); // IE 6-9
+}
 
-// Transition
+// ** Transition
+// Transition full value
 @mixin transition($transition...) {
 	-webkit-transition:$transition;
 	-moz-transition:$transition;
 	-o-transition:$transition;
 	transition:$transition;
 }
+// Transition each set option
 @mixin transition-option($options, $transitions) {
 	-webkit-transition-#{$options}:$transitions;
 	-moz-transition-#{$options}:$transitions;
 	-o-transition-#{$options}:$transitions;
 	transition-#{$options}:$transitions;
 }
+// Transition propery
 @mixin transition-property($property...) {
 	@include transition-option('property', $property);
 }
+// Transition delay
 @mixin transition-delay($delay...) {
 	@include transition-option('delay', $delay);
 }
+// Transition duration
 @mixin transition-duration($duration...) {
 	@include transition-option('duration', $duration);
 }
+// Transition transform
 @mixin transition-transform($transform...) {
 	@include transition-option('transform', $transform);
 }
 
-// Transform
+// ** Transform
+// Transform full value
 @mixin transform($transforms) {
 	-webkit-transform:$transforms;
 	-moz-transform:$transforms;
@@ -124,27 +175,35 @@
 	-o-transform:$transforms;
 	transform:$transforms;
 }
+// Transform rotate
 @mixin rotate($deg) {
 	@include transform(rotate(#{$deg}deg));
 }
+// Transform rotateX
 @mixin rotateX($deg) {
 	@include transform(rotateX(#{$deg}deg));
 }
+// Transform rotateY
 @mixin rotateY($deg) {
 	@include transform(rotateY(#{$deg}deg));
 }
+// Transform scale
 @mixin scale($scale) {
 	@include transform(scale($scale));
 }
+// Transform translate
 @mixin translate($x, $y) {
 	@include transform(translate($x, $y));
 }
+// Transform translate3d
 @mixin translate3d($x, $y, $z) {
 	@include transform(translate3d($x, $y, $z));
 }
+// Transform skew
 @mixin skew($x, $y) {
 	@include transform(skew(#{$x}deg, #{$y}deg));
 }
+// Transform origin
 @mixin transform-origin($origin) {
 	-webkit-transform-origin:$origin;
 	-moz-transform-origin:$origin;
