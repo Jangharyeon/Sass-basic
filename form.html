@@ -1,0 +1,239 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Module</title>
+<link rel="stylesheet" href="assets/css/global.css">
+<link rel="stylesheet" href="assets/css/_lib/font-awesome.min.css">
+<!--[if lt IE 9]>
+<script src="assets/js/_lib/html5shiv.min.js"></script>
+<script src="assets/js/_lib/respond.min.js"></script>
+<![endif]-->
+<style>
+	body {
+		-webkit-box-sizing:border-box;
+		box-sizing:border-box;
+		padding:20px;
+	}
+</style>
+</head>
+<body>
+
+<h1>Form</h1>
+<!-- Default -->
+<h2>Default Style</h2>
+<div class="clearfix">
+	<input type="text" class="text-field" placeholder=".text-field">
+	<select class="text-field">
+		<option value="0">select.text-field</option>
+		<option value="1">value2</option>
+		<option value="2">value3</option>
+	</select>
+</div>
+<div class="full-text-field">
+	<input type="text" class="text-field" placeholder=".full-text-field > .text-field">
+</div>
+<div class="clearfix">
+	<select class="text-field" style="width:100%;">
+		<option value="0">select.text-field[style="width:100%;"]</option>
+		<option value="1">value2</option>
+		<option value="2">value3</option>
+	</select>
+</div>
+<div class="clearfix">
+	<select class="text-field" style="width:100%;" multiple>
+		<option value="0">select[multiple].text-field[style="100%"]</option>
+		<option value="1">select</option>
+		<option value="2">select</option>
+		<option value="3">select</option>
+		<option value="4">select</option>
+		<option value="5">select</option>
+		<option value="6">select</option>
+		<option value="7">select</option>
+		<option value="8">select</option>
+	</select>
+</div>
+<div class="checkbox">
+	<label>
+		<input type="checkbox">
+		.checkbox > label > input[type="checkbox"]
+	</label>
+</div>
+<div class="radio">
+	<label>
+		<input type="radio">
+		.radio > label > input[type="radio"]
+	</label>
+</div>
+<div class="full-text-field">
+	<textarea cols="30" rows="5" class="text-field" placeholder=".full-text-field > textarea.text-field"></textarea>
+</div>
+
+<!-- Disabled -->
+<h2 style="margin-top:40px;">Disabled</h2>
+<div class="clearfix">
+	<input type="text" class="text-field" disabled="disabled" placeholder=".text-field[disabled]">
+	<select class="text-field" disabled="disabled">
+		<option value="0">select.text-field</option>
+		<option value="1">value2</option>
+		<option value="2">value3</option>
+	</select>
+</div>
+<div class="full-text-field">
+	<input type="text" class="text-field" disabled="disabled" placeholder=".full-text-field > .text-field">
+</div>
+<div class="clearfix">
+	<select class="text-field" style="width:100%;" disabled="disabled">
+		<option value="0">select.text-field[style="width:100%;"]</option>
+		<option value="1">value2</option>
+		<option value="2">value3</option>
+	</select>
+</div>
+<div class="clearfix">
+	<select class="text-field" style="width:100%;" disabled="disabled" multiple>
+		<option value="0">select[multiple].text-field[style="100%"][disabled]</option>
+		<option value="1">select</option>
+		<option value="2">select</option>
+		<option value="3">select</option>
+		<option value="4">select</option>
+		<option value="5">select</option>
+		<option value="6">select</option>
+		<option value="7">select</option>
+		<option value="8">select</option>
+	</select>
+</div>
+<div class="checkbox">
+	<label class="disabled">
+		<input type="checkbox" disabled="disabled">
+		.checkbox > label.disabled > input[type="checkbox"][disabled="disabled"]
+	</label>
+</div>
+<fieldset disabled="disabled">
+	<div class="checkbox">
+		<label>
+			<input type="checkbox">
+			fieldset[disabled="disabled"] > .checkbox > label > input[type="checkbox"]
+		</label>
+	</div>
+</fieldset>
+<div class="radio">
+	<label class="disabled">
+		<input type="radio" disabled="disabled">
+		.radio > label[disabled="disabled"] > input[type="radio"][disabled="disabled"]
+	</label>
+</div>
+<fieldset disabled="disabled">
+	<div class="radio">
+		<label>
+			<input type="radio">
+			fieldset[disabled="disabled"] > .radio > label > input[type="radio"]
+		</label>
+	</div>
+</fieldset>
+<div class="full-text-field">
+	<textarea cols="30" rows="5" class="text-field" disabled="disabled" placeholder=".full-text-field > textarea.text-field[disabled]"></textarea>
+</div>
+
+<!-- Inline radio, checkbox -->
+<h2 style="margin-top:40px;">Inline radio, checkbox</h2>
+<div class="clearfix">
+	<label class="radio-inline">
+		<input type="radio">
+		label.radio-inline > input[type="radio"]
+	</label>
+	<label class="radio-inline">
+		<input type="radio">
+		label.radio-inline > input[type="radio"]
+	</label>
+</div>
+<div class="clearfix">
+	<label class="checkbox-inline">
+		<input type="checkbox">
+		label.checkbox-inline > input[type="checkbox"]
+	</label>
+	<label class="checkbox-inline">
+		<input type="checkbox">
+		label.checkbox-inline > input[type="checkbox"]
+	</label>
+</div>
+<div class="clearfix">
+	<input type="text" class="text-field" placeholder=".text-field">
+	<label class="radio-inline">
+		<input type="radio">
+		label.radio-inline > input[type="radio"]
+	</label>
+	<label class="radio-inline">
+		<input type="radio">
+		label.radio-inline > input[type="radio"]
+	</label>
+</div>
+<div class="clearfix">
+	<input type="text" class="text-field" placeholder=".text-field">
+	<label class="checkbox-inline">
+		<input type="checkbox">
+		label.checkbox-inline > input[type="checkbox"]
+	</label>
+	<label class="checkbox-inline">
+		<input type="checkbox">
+		label.checkbox-inline > input[type="checkbox"]
+	</label>
+</div>
+
+<!-- Height sizing -->
+<h2 style="margin-top:40px;">Height sizing</h2>
+<div class="clearfix">
+	<input type="text" class="text-field input-sm" placeholder=".text-field.input-sm">
+	<input type="text" class="text-field" placeholder=".text-field">
+	<input type="text" class="text-field input-lg" placeholder=".text-field.input-lg">
+	<input type="text" class="text-field input-xl" placeholder=".text-field.input-xl">
+</div>
+<div class="full-text-field">
+	<input type="text" class="text-field input-sm" placeholder=".text-field.input-sm">
+</div>
+<div class="full-text-field">
+	<input type="text" class="text-field" placeholder=".text-field">
+</div>
+<div class="full-text-field">
+	<input type="text" class="text-field input-lg" placeholder=".text-field.input-lg">
+</div>
+<div class="full-text-field">
+	<input type="text" class="text-field input-xl" placeholder=".text-field.input-xl">
+</div>
+<div class="clearfix">
+	<select class="text-field input-sm" style="width:100%;">
+		<option value="0">select.text-field[style="width:100%;"].input-sm</option>
+		<option value="1">value2</option>
+		<option value="2">value3</option>
+	</select>
+</div>
+<div class="clearfix">
+	<select class="text-field" style="width:100%;">
+		<option value="0">select.text-field[style="width:100%;"]</option>
+		<option value="1">value2</option>
+		<option value="2">value3</option>
+	</select>
+</div>
+<div class="clearfix">
+	<select class="text-field input-lg" style="width:100%;">
+		<option value="0">select.text-field[style="width:100%;"].input-lg</option>
+		<option value="1">value2</option>
+		<option value="2">value3</option>
+	</select>
+</div>
+<div class="clearfix">
+	<select class="text-field input-xl" style="width:100%;">
+		<option value="0">select.text-field[style="width:100%;"].input-xl</option>
+		<option value="1">value2</option>
+		<option value="2">value3</option>
+	</select>
+</div>
+
+<!-- Help-block -->
+<h2 style="margin-top:40px;">Help-block</h2>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="assets/js/default.js"></script>
+</body>
+</html>

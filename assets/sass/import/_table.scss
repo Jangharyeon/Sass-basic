@@ -1,11 +1,15 @@
 // ** Variables
-$table-cell-vertical-padding:10px !default;
-$table-cell-horizontal-padding:10px !default;
+$table-cell-vertical-padding: 10px !default;
+$table-cell-horizontal-padding: 10px !default;
 
 $table-inner-border-color: #dedede !default;
 
 $th-bg-color: #f7f7f7 !default;
-$table-bg-hover: #f7f7f7 !default;
+$td-bg-color: #fff !default;
+$table-bg-hover: darken($td-bg-color, 3%);
+
+$table-bg-success: #dff0d8 !default;
+$table-bg-success-hover: darken($table-bg-success, 3%);
 
 // ** Table style
 // Table default
@@ -29,6 +33,9 @@ $table-bg-hover: #f7f7f7 !default;
 		background-color:$th-bg-color;
 		font-weight:normal;
 		text-align:center;
+	}
+	td {
+		background-color:$td-bg-color;
 	}
 	thead tr:first-child th {
 		border-top:0;
@@ -67,7 +74,7 @@ $table-bg-hover: #f7f7f7 !default;
 	.success,
 	.success th,
 	.success td {
-		background-color:#dff0d8;
+		background-color:$table-bg-success;
 	}
 }
 .table-hover {
@@ -75,6 +82,6 @@ $table-bg-hover: #f7f7f7 !default;
 	.success:hover td,
 	th.success:hover,
 	td.success:hover {
-		background-color:#d4e9cc;
+		background-color:$table-bg-success-hover;
 	}
 }

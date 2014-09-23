@@ -59,6 +59,14 @@
 	filter:alpha(opacity=#{$opacity-ie}); // IE5-7
 	*zoom:1;
 }
+
+// ** Box sizing
+@mixin box-sizing($boxmodel) {
+	-webkit-box-sizing:$boxmodel;
+	-moz-box-sizing:$boxmodel;
+	box-sizing:$boxmodel;
+}
+
 // ** Drop shadow
 @mixin box-shadow($shadow...) {
 	-webkit-box-shadow:$shadow;
@@ -81,9 +89,6 @@
 @mixin border-left-radius($radius) {
 	border-top-left-radius:$radius;
 	border-bottom-left-radius:$radius;
-}
-@mixin border-radius($radius) {
-	border-radius:$radius;
 }
 
 // ** Gradient
@@ -210,4 +215,66 @@
 	-ms-transform-origin:$origin;
 	-o-transform-origin:$origin;
 	transform-origin:$origin;
+}
+
+// ** Animation
+@mixin animation($animation) {
+	-webkit-animation:$animation;
+	animation:$animation;
+}
+@mixin animation-name($name) {
+	-webkit-animation-name:$name;
+	animation-name:$name;
+}
+@mixin animation-duration($duration) {
+	-webkit-animation-duration:$duration;
+	animation-duration:$duration;
+}
+@mixin animation-timing-function($timing-function) {
+	-webkit-animation-timing-function:$timing-function;
+	animation-timing-function:$timing-function;
+}
+@mixin animation-delay($delay) {
+	-webkit-animation-delay:$delay;
+	animation-delay:$delay;
+}
+@mixin animation-iteration-count($iteration-count) {
+	-webkit-animation-iteration-count:$iteration-count;
+	animation-iteration-count:$iteration-count;
+}
+@mixin animation-direction($direction) {
+	-webkit-animation-direction:$direction;
+	animation-direction:$direction;
+}
+
+// ** Keyframes
+@mixin keyframes($name) {
+	@-webkit-keyframes #{$name} {
+		@content;
+	}
+	@keyframes #{$name} {
+		@content;
+	}
+}
+
+// ** User select
+@mixin user-select($select) {
+	-webkit-user-select:$select;
+	-moz-user-select:$select;
+	-ms-user-select:$select;
+	user-select:$select;
+}
+
+// Retina image
+@mixin image-retina($image, $width, $height:auto) {
+	@media
+	only screen and (-webkit-min-device-pixel-ratio: 2),
+	only screen and (min--moz-device-pixel-ratio: 2),
+	only screen and (-o-min-device-pixel-ratio: 2/1),
+	only screen and (min-device-pixel-ratio: 2),
+	only screen and (min-resolution: 192dpi),
+	only screen and (min-resolution: 2dppx) {
+		background-image: url($image);
+		background-size: $width $height;
+	}
 }

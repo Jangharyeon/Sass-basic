@@ -1,19 +1,15 @@
 // ** Variables
-$ico-url-path : '../images/';
+$ico-url-path: '../images/';
+$list-padding-left: 7px !default;
 
 // ** Mixins
-@mixin image-url-path($image) {
+@mixin background-image($image) {
 	background-image:url($ico-url-path + $image);
 }
 
 // ** List style
-.dot-dark-gray,
-.dot-gray,
-.dot-light-gray,
-.list-dot-dark-gray li,
-.list-dot-gray li,
-.list-dot-light-gray li {
-	padding-left:7px;
+%dot-list-style {
+	padding-left:$list-padding-left;
 	background-repeat:no-repeat;
 	background-position:0 7px;
 	font-size:$font-size-md;
@@ -21,17 +17,20 @@ $ico-url-path : '../images/';
 }
 .dot-dark-gray,
 .list-dot-dark-gray > li {
-	@include image-url-path('ico-dot-dark-gray.png');
+	@extend %dot-list-style;
+	@include background-image('ico-dot-dark-gray.png');
 	color:$color-gray-dark;
 }
 .dot-gray,
 .list-dot-gray > li {
-	@include image-url-path('ico-dot-gray.png');
+	@extend %dot-list-style;
+	@include background-image('ico-dot-gray.png');
 	color:$color-gray;
 }
 .dot-light-gray,
 .list-dot-light-gray > li {
-	@include image-url-path('ico-dot-light-gray.png');
+	@extend %dot-list-style;
+	@include background-image('ico-dot-light-gray.png');
 	color:$color-gray-light;
 }
 .ico-dot-sm,

@@ -231,231 +231,6 @@ a:focus {
   position: relative;
 }
 
-/* ==Button== */
-/* Button default */
-.button {
-  display: inline-block;
-  *margin-left: 4px;
-  padding: 4px 7px 1px;
-  *padding: 2px 6px 0;
-  border-width: 1px;
-  border-style: solid;
-  border-radius: 2px;
-  font-size: 11px;
-  line-height: 18px;
-  white-space: nowrap;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-.button:focus,
-.button:active:focus {
-  outline: thin dotted;
-  outline: 5px auto -webkit-focus-ring-color;
-  outline-offset: -2px;
-}
-
-.button:active {
-  background-image: none;
-  outline: 0;
-  -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-}
-
-.button[disabled],
-fieldset[disabled] .button {
-  cursor: not-allowed;
-  filter: alpha(opacity=65);
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  opacity: .65;
-}
-
-/* Button white */
-.button-white {
-  border-color: #ccc #aaa #aaa #ccc;
-  background-color: #fff;
-  color: #393939;
-}
-
-.button-white:hover,
-.button-white:focus,
-.button-white:active {
-  border-color: #bfbfbf #9b9b9b #9b9b9b #bfbfbf;
-  background-color: #f9f9f9;
-  color: #393939;
-  text-decoration: none;
-}
-
-.button-white[desabled],
-fieldset[disabled] .button-white,
-.button-white[disabled]:hover,
-fieldset[disabled] .button-white:hover,
-.button-white[disabled]:focus,
-fieldset[disabled] .button-white:focus,
-.button-white[disabled]:active,
-fieldset[disabled] .button-white:active {
-  background-color: #fff;
-  border-color: #ccc #aaa #aaa #ccc;
-}
-
-/* Button red */
-.button-red {
-  border-color: #eb0a00 #c20800 #c20800 #eb0a00;
-  background-color: #ff140a;
-  color: #fff;
-}
-
-.button-red:hover,
-.button-red:focus,
-.button-red:active {
-  border-color: #dd0900 #b30700 #b30700 #dd0900;
-  background-color: #f7130a;
-  color: #fff;
-  text-decoration: none;
-}
-
-.button-red[desabled],
-fieldset[disabled] .button-red,
-.button-red[disabled]:hover,
-fieldset[disabled] .button-red:hover,
-.button-red[disabled]:focus,
-fieldset[disabled] .button-red:focus,
-.button-red[disabled]:active,
-fieldset[disabled] .button-red:active {
-  background-color: #fe1409;
-  border-color: #eb0a00 #c20800 #c20800 #eb0a00;
-}
-
-/* Button gray */
-.button-gray {
-  border-color: #5e5e5e #444 #444 #5e5e5e;
-  background-color: #666;
-  color: #fff;
-}
-
-.button-gray:hover,
-.button-gray:focus,
-.button-gray:active {
-  border-color: #505050 #363636 #363636 #505050;
-  background-color: #5e5e5e;
-  color: #fff;
-  text-decoration: none;
-}
-
-.button-gray[desabled],
-fieldset[disabled] .button-gray,
-.button-gray[disabled]:hover,
-fieldset[disabled] .button-gray:hover,
-.button-gray[disabled]:focus,
-fieldset[disabled] .button-gray:focus,
-.button-gray[disabled]:active,
-fieldset[disabled] .button-gray:active {
-  background-color: #666;
-  border-color: #5e5e5e #444 #444 #5e5e5e;
-}
-
-/* Button size */
-.button-xs {
-  padding: 4px 7px 1px;
-  *padding: 2px 6px 0;
-  line-height: 13px;
-}
-
-.button-md {
-  padding: 9px 25px 8px;
-  *padding: 8px 24px 6px;
-}
-
-.button-lg {
-  padding: 12px 31px;
-  *padding: 11px 30px 10px;
-}
-
-.button-xl {
-  min-width: 200px;
-  padding: 18px 0;
-  *padding: 17px 0 16px;
-}
-
-/* Button text */
-.button .text-button {
-  overflow: hidden;
-  float: left;
-  text-indent: -9999px;
-}
-
-.button-md .text-button {
-  width: 24px;
-  height: 14px;
-  background: url(http://image.wemakeprice.com/images/global/text-button-md.png) no-repeat;
-}
-
-.button-lg .text-button {
-  width: 27px;
-  height: 15px;
-  background: url(http://image.wemakeprice.com/images/global/text-button-lg.png) no-repeat;
-}
-
-.button-xl .text-button {
-  float: none;
-  height: 17px;
-  margin: 0 auto;
-  background: url(http://image.wemakeprice.com/images/global/text-button-xl.png) no-repeat;
-}
-
-.button .text-confirm {
-  /* 확인 white */
-  background-position: 0 0;
-}
-
-.button-white .text-confirm {
-  /* 확인 gray */
-  background-position: -60px 0;
-}
-
-.button .text-cancel {
-  /* 취소 white */
-  background-position: 0 -20px;
-}
-
-.button-white .text-cancel {
-  /* 취소 gray */
-  background-position: -60px -20px;
-}
-
-.button .text-inquiry {
-  /* 조회 white */
-  background-position: 0 -40px;
-}
-
-.button-white .text-inquiry {
-  /* 조회 gray */
-  background-position: -60px -40px;
-}
-
-/* Button group */
-.wrap-btn-group {
-  /* 센터정렬 버튼 그룹 */
-  position: relative;
-  text-align: center;
-}
-
-.wrap-btn-group .button {
-  margin-left: 1px;
-  *margin-left: 5px;
-}
-
-.wrap-btn-group .button:first-child {
-  margin-left: 0;
-}
-
-.button-group {
-  display: inline-block;
-}
-
 /* ==Label== */
 .label {
   display: inline;
@@ -715,11 +490,9 @@ fieldset[disabled] .button-gray:active {
 }
 
 .dot-dark-gray,
-.dot-gray,
-.dot-light-gray,
-.list-dot-dark-gray li,
-.list-dot-gray li,
-.list-dot-light-gray li {
+.list-dot-dark-gray > li, .dot-gray,
+.list-dot-gray > li, .dot-light-gray,
+.list-dot-light-gray > li {
   padding-left: 7px;
   background-repeat: no-repeat;
   background-position: 0 7px;
@@ -1625,6 +1398,9 @@ fieldset[disabled] .button-gray:active {
   font-weight: normal;
   text-align: center;
 }
+.table td {
+  background-color: #fff;
+}
 .table thead tr:first-child th {
   border-top: 0;
 }
@@ -1656,7 +1432,7 @@ fieldset[disabled] .button-gray:active {
 .table-hover .success:hover td,
 .table-hover th.success:hover,
 .table-hover td.success:hover {
-  background-color: #d4e9cc;
+  background-color: #d6eccd;
 }
 
 label {
@@ -1681,122 +1457,118 @@ input[type="checkbox"]:focus {
   outline-offset: -2px;
 }
 
-.wrap-text-field {
+.full-text-field {
   padding-right: 20px;
   *zoom: 1;
 }
-.wrap-text-field:before, .wrap-text-field:after {
+
+.table .last-text-field {
+  margin-bottom: 3px;
+  *zoom: 1;
+}
+.table .last-text-field:before, .table .last-text-field:after {
   display: table;
   content: '';
 }
-.wrap-text-field:after {
+.table .last-text-field:after {
   clear: both;
-}
-.wrap-text-field .text-field {
-  display: block;
-  width: 100%;
-}
-.table .wrap-text-field {
-  margin-bottom: 3px;
 }
 
 .text-field {
   display: inline-block;
-  width: 100px;
+  overflow: hidden;
+  width: 200px;
   height: 18px;
-  padding: 4px 9px 1px;
+  padding: 5px 9px 3px;
   border: 1px solid #ccc;
+  border-radius: 3px;
   background-color: #fff;
   background-image: none;
   font-size: 12px;
-  color: #666;
+  color: #393939;
   line-height: 18px;
-  -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  -webkit-transition: border ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  -moz-transition: border ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  -o-transition: border ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  transition: border ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+.full-text-field .text-field {
+  display: block;
+  *float: left;
+  width: 100%;
+}
+.text-field:hover {
+  border-color: #b3b3b3;
+}
+.text-field:focus {
+  border-color: #999999;
+  outline: 0;
+  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+}
+.text-field[disabled]:hover, .text-field[disabled]:focus {
+  border-color: #ccc;
+}
+.text-field::-moz-placeholder {
+  color: #868686;
+  opacity: 1;
+}
+.text-field:-ms-input-placeholder {
+  color: #868686;
+}
+.text-field::-webkit-input-placeholder {
+  color: #868686;
+}
+.text-field[disabled], .text-field[readnoly], fieldset[disabled] .text-field {
+  background-color: #f7f7f7;
+  color: #aaa;
+  cursor: not-allowed;
+  opacity: 1;
+}
+textarea.text-field {
+  height: auto;
 }
 
 select.text-field {
-  /* ie7은 높이값 적용 안됨 */
-  width: 100%;
-  height: 25px;
+  width: 200px;
+  height: 28px;
   *height: auto !important;
   padding-top: 0;
   padding-right: 0;
   padding-bottom: 0;
-  -webkit-border-radius: 0;
-  border-radius: 0;
   background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeD0iMTJweCIgeT0iMHB4IiB3aWR0aD0iMjRweCIgaGVpZ2h0PSIzcHgiIHZpZXdCb3g9IjAgMCA2IDMiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDYgMyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PHBvbHlnb24gcG9pbnRzPSI1Ljk5MiwwIDIuOTkyLDMgLTAuMDA4LDAgIi8+PC9zdmc+);
   background-position: 100% 50%;
   background-repeat: no-repeat;
   -webkit-appearance: none;
 }
 
-.text-field:hover,
-.text-field:focus {
-  border-color: #bbb;
-}
-
-.text-field[disabled]:hover,
-.text-field[disabled]:focus {
-  border-color: #ccc;
-}
-
-.text-field::-moz-placeholder {
-  color: #aaa;
-  opacity: 1;
-}
-
-.text-field:-ms-input-placeholder {
-  color: #aaa;
-}
-
-.text-field::-webkit-input-placeholder {
-  color: #aaa;
-}
-
-.text-field:focus {
-  border-color: #999;
-  outline: 0;
-  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
-}
-
-.text-field[disabled],
-.text-field[readonly],
-fieldset[disabled] .text-field {
-  background-color: #f7f7f7;
-  color: #aaa;
-  cursor: not-allowed;
-  opacity: 1;
-}
-
-textarea.text-field {
+select[multiple].text-field {
   height: auto;
+  padding-top: 8px;
+  padding-right: 9px;
+  padding-bottom: 8px;
+  background-image: none;
 }
 
-.text-field-static {
-  padding: 4px 0 3px;
-  line-height: 18px;
-}
-
-/* Radio & Checkbox */
 .radio,
 .checkbox {
   display: block;
   min-height: 18px;
 }
-
-.radio label,
+.radio label, .radio-inline,
 .checkbox label,
-.radio-inline,
 .checkbox-inline {
   display: inline-block;
   position: relative;
   padding-left: 18px;
   font-weight: normal;
-  color: #666;
+  color: #393939;
   vertical-align: middle;
   cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .radio input[type="radio"],
@@ -1808,103 +1580,64 @@ textarea.text-field {
   left: 0;
 }
 
-/* Input disabled */
-input[type="radio"][disabled],
-input[type="checkbox"][disabled],
-.radio label[disabled],
-.radio-inline[disabled],
-.checkbox label[disabled],
-.checkbox-inline[disabled],
-fieldset[disabled] input[type="radio"],
-fieldset[disabled] input[type="checkbox"],
-fieldset[disabled] .radio label,
-fieldset[disabled] .radio-inline,
-fieldset[disabled] .checkbox label,
-fieldset[disabled] .checkbox-inline {
+.radio-inline + .radio-inline,
+.checkbox-inline + .checkbox-inline,
+.text-field + .radio-inline,
+.text-field + .checkbox-inline {
+  margin-left: 6px;
+}
+
+label[disabled], label.disabled, label input[type="radio"][disabled], label input[type="checkbox"][disabled], fieldset[disabled] label, fieldset[disabled] label input[type="radio"], fieldset[disabled] label input[type="checkbox"] {
   color: #aaa;
   cursor: not-allowed;
 }
 
-/* Input size xs */
-select.input-xs {
-  height: 19px;
+.input-sm {
+  padding-top: 3px;
+  padding-bottom: 1px;
 }
 
-/* Input size medium*/
-.input-md,
-.form-horizontal .form-group-md .text-field {
-  padding-top: 8px;
+.input-lg {
+  padding-top: 7px;
   padding-bottom: 5px;
 }
 
-select.input-md {
-  height: 33px;
+.input-xl {
+  padding-top: 9px;
+  padding-bottom: 7px;
 }
 
-textarea.input-md,
-select[multiple].input-md {
-  height: auto;
-}
-
-/* Input size large*/
-.input-lg,
-.form-horizontal .form-group-lg .text-field {
-  padding-top: 12px;
-  padding-bottom: 9px;
+select.input-sm {
+  height: 24px;
 }
 
 select.input-lg {
-  height: 41px;
+  height: 32px;
 }
 
-textarea.input-lg,
-select[multiple].input-md {
-  height: auto;
+select.input-xl {
+  height: 36px;
 }
 
-/* IE8 hack - selectbox text align */
+/* Input size large*/
+/* IE8 hack - selectbox text vertical align */
 @media \0screen {
-  select.text-field {
-    padding-top: 3px;
-    padding-right: 3px;
+  select.input-sm {
+    padding-top: 2px;
     padding-bottom: 2px;
   }
-
-  select.input-xs {
-    padding-top: 1px;
-    padding-bottom: 1px;
-  }
-
-  select.input-md {
-    padding-top: 7px;
-    padding-bottom: 6px;
-  }
-
-  select.input-lg {
-    padding-top: 11px;
-    padding-bottom: 10px;
-  }
-}
-/* Firefox hack - selectbox text align */
-@-moz-document url-prefix() {
   select.text-field {
     padding-top: 4px;
-    padding-bottom: 1px;
+    padding-right: 3px;
+    padding-bottom: 4px;
   }
-
-  select.input-xs {
-    padding-top: 1px;
-    padding-bottom: 1px;
-  }
-
-  select.input-md {
-    padding-top: 8px;
-    padding-bottom: 5px;
-  }
-
   select.input-lg {
-    padding-top: 12px;
-    padding-bottom: 9px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+  }
+  select.input-xl {
+    padding-top: 8px;
+    padding-bottom: 8px;
   }
 }
 /* Form group */
@@ -1982,6 +1715,230 @@ span.help-block {
 .text-field + .button {
   margin-left: 1px;
   *margin-left: 5px;
+}
+
+/* Button default */
+.button {
+  display: inline-block;
+  *margin-left: 4px;
+  padding: 4px 7px 1px;
+  *padding: 2px 6px 0;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 2px;
+  font-size: 11px;
+  line-height: 18px;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.button:focus,
+.button:active:focus {
+  outline: thin dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+
+.button:active {
+  background-image: none;
+  outline: 0;
+  -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+}
+
+.button[disabled],
+fieldset[disabled] .button {
+  cursor: not-allowed;
+  filter: alpha(opacity=65);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  opacity: .65;
+}
+
+/* Button white */
+.button-white {
+  border-color: #ccc #aaa #aaa #ccc;
+  background-color: #fff;
+  color: #393939;
+}
+
+.button-white:hover,
+.button-white:focus,
+.button-white:active {
+  border-color: #bfbfbf #9b9b9b #9b9b9b #bfbfbf;
+  background-color: #f9f9f9;
+  color: #393939;
+  text-decoration: none;
+}
+
+.button-white[desabled],
+fieldset[disabled] .button-white,
+.button-white[disabled]:hover,
+fieldset[disabled] .button-white:hover,
+.button-white[disabled]:focus,
+fieldset[disabled] .button-white:focus,
+.button-white[disabled]:active,
+fieldset[disabled] .button-white:active {
+  background-color: #fff;
+  border-color: #ccc #aaa #aaa #ccc;
+}
+
+/* Button red */
+.button-red {
+  border-color: #eb0a00 #c20800 #c20800 #eb0a00;
+  background-color: #ff140a;
+  color: #fff;
+}
+
+.button-red:hover,
+.button-red:focus,
+.button-red:active {
+  border-color: #dd0900 #b30700 #b30700 #dd0900;
+  background-color: #f7130a;
+  color: #fff;
+  text-decoration: none;
+}
+
+.button-red[desabled],
+fieldset[disabled] .button-red,
+.button-red[disabled]:hover,
+fieldset[disabled] .button-red:hover,
+.button-red[disabled]:focus,
+fieldset[disabled] .button-red:focus,
+.button-red[disabled]:active,
+fieldset[disabled] .button-red:active {
+  background-color: #fe1409;
+  border-color: #eb0a00 #c20800 #c20800 #eb0a00;
+}
+
+/* Button gray */
+.button-gray {
+  border-color: #5e5e5e #444 #444 #5e5e5e;
+  background-color: #666;
+  color: #fff;
+}
+
+.button-gray:hover,
+.button-gray:focus,
+.button-gray:active {
+  border-color: #505050 #363636 #363636 #505050;
+  background-color: #5e5e5e;
+  color: #fff;
+  text-decoration: none;
+}
+
+.button-gray[desabled],
+fieldset[disabled] .button-gray,
+.button-gray[disabled]:hover,
+fieldset[disabled] .button-gray:hover,
+.button-gray[disabled]:focus,
+fieldset[disabled] .button-gray:focus,
+.button-gray[disabled]:active,
+fieldset[disabled] .button-gray:active {
+  background-color: #666;
+  border-color: #5e5e5e #444 #444 #5e5e5e;
+}
+
+/* Button size */
+.button-xs {
+  padding: 4px 7px 1px;
+  *padding: 2px 6px 0;
+  line-height: 13px;
+}
+
+.button-md {
+  padding: 9px 25px 8px;
+  *padding: 8px 24px 6px;
+}
+
+.button-lg {
+  padding: 12px 31px;
+  *padding: 11px 30px 10px;
+}
+
+.button-xl {
+  min-width: 200px;
+  padding: 18px 0;
+  *padding: 17px 0 16px;
+}
+
+/* Button text */
+.button .text-button {
+  overflow: hidden;
+  float: left;
+  text-indent: -9999px;
+}
+
+.button-md .text-button {
+  width: 24px;
+  height: 14px;
+  background: url(http://image.wemakeprice.com/images/global/text-button-md.png) no-repeat;
+}
+
+.button-lg .text-button {
+  width: 27px;
+  height: 15px;
+  background: url(http://image.wemakeprice.com/images/global/text-button-lg.png) no-repeat;
+}
+
+.button-xl .text-button {
+  float: none;
+  height: 17px;
+  margin: 0 auto;
+  background: url(http://image.wemakeprice.com/images/global/text-button-xl.png) no-repeat;
+}
+
+.button .text-confirm {
+  /* 확인 white */
+  background-position: 0 0;
+}
+
+.button-white .text-confirm {
+  /* 확인 gray */
+  background-position: -60px 0;
+}
+
+.button .text-cancel {
+  /* 취소 white */
+  background-position: 0 -20px;
+}
+
+.button-white .text-cancel {
+  /* 취소 gray */
+  background-position: -60px -20px;
+}
+
+.button .text-inquiry {
+  /* 조회 white */
+  background-position: 0 -40px;
+}
+
+.button-white .text-inquiry {
+  /* 조회 gray */
+  background-position: -60px -40px;
+}
+
+/* Button group */
+.wrap-btn-group {
+  /* 센터정렬 버튼 그룹 */
+  position: relative;
+  text-align: center;
+}
+
+.wrap-btn-group .button {
+  margin-left: 1px;
+  *margin-left: 5px;
+}
+
+.wrap-btn-group .button:first-child {
+  margin-left: 0;
+}
+
+.button-group {
+  display: inline-block;
 }
 
 /*# sourceMappingURL=global.css.map */
