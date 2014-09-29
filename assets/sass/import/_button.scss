@@ -1,197 +1,199 @@
 // ** Variables
+// Default variables
+$btn-padding-vertical: 5px !default;
+$btn-padding-horizon: 14px !default;
+$btn-border-width: 1px !default;
+$btn-border-radius: 3px !default;
+$btn-font-size: 12px !default;
+$btn-line-height: 18px !default;
+// btn-white
+$btn-white-border-color: #ccc;
+$btn-white-bg-color: #fff;
+$btn-white-font-color: #393939;
+// btn-red
+$btn-red-border-color: #eb0a00;
+$btn-red-bg-color: #ff140a;
+$btn-red-font-color: #fff;
+// btn-gray
+$btn-gray-border-color: #5e5e5e;
+$btn-gray-bg-color: #666;
+$btn-gray-font-color: #fff;
+// btn-sm
+$btn-padding-vertical-sm: 3px !default;
+$btn-padding-horizon-sm: 10px !default;
+// btn-lg
+$btn-padding-vertical-lg: 7px !default;
+$btn-padding-horizon-lg: 18px !default;
+// btn-xl
+$btn-padding-vertical-xl: 9px !default;
+$btn-padding-horizon-xl: 22px !default;
+// IE7 left margin
+$ie7-margin-left: 4px;
 
 // ** Mixins
+// btn-variant set
+@mixin btn-variant($border-color, $bg-color, $color) {
+	border-color:$border-color darken($border-color, 15%) darken($border-color, 15%) $border-color;
+	background-color:$bg-color;
+	color:$color;
+	&:hover,
+	&:focus,
+	&:active {
+		border-color:darken($border-color, 5%) darken($border-color, 20%) darken($border-color, 20%) darken($border-color, 5%);
+		background-color:darken($bg-color, 5%);
+		color:$color;
+		text-decoration:none;
+	}
+	&[disabled],
+	&.disabled,
+	fieldset[disabled] & {
+		&,
+		&:hover,
+		&:focus,
+		&:active {
+			background-color:$bg-color;
+			border-color:$border-color;
+		}
+	}
+}
+// btn-size
+@mixin btn-size($padding-vertical, $padding-horizon, $font-size: 12px) {
+	padding:$padding-vertical $padding-horizon ($padding-vertical - 2);
+	@at-root {
+		button#{&} {
+			*padding:($padding-vertical - 2) ($padding-horizon - 1) ($padding-vertical - 3);
+		}
+	}
+	font-size:$font-size;
+}
 
-/* Button default */
-.button {
+// ** btn style
+// btn default
+.btn {
 	display:inline-block;
-	*margin-left:4px;
-	padding:4px 7px 1px;
-	*padding:2px 6px 0;
-	border-width:1px;
+	@include btn-size($btn-padding-vertical, $btn-padding-horizon);
+	border-width:$btn-border-width;
 	border-style:solid;
-	border-radius:2px;
-	font-size:11px;
-	line-height:18px;
+	border-color:transparent;
+	border-radius:$btn-border-radius;
+	font-weight:bold;
+	font-size:$btn-font-size;
+	text-align:center;
+	vertical-align:middle;
+	line-height:$btn-line-height;
 	white-space:nowrap;
-	-webkit-user-select:none;
-	-moz-user-select:none;
-	-ms-user-select:none;
-	user-select:none;
+	@include transition(border .25s ease, background-color .25s ease);
+	@include user-select(none);
+	&:focus,
+	&:active {
+		&:focus {
+			@include tab-focus();
+		}
+	}
+	&:active,
+	&.active {
+		background-image:none;
+		outline:0;
+		@include box-shadow(inset 0 3px 5px rgba(0, 0, 0, .125));
+	}
+	&[disabled],
+	&.disabled,
+	fieldset[disabled] & {
+		@include box-shadow(none);
+		cursor:not-allowed;
+		@include opacity(.65);
+		pointer-events: none;
+	}
+	// IE7 input + btn, btn + btn 여백
+	@at-root {
+		.textfield + button#{&},
+		button#{&} + button#{&} {
+			*margin-left:$ie7-margin-left;
+		}
+	}
 }
-.button:focus,
-.button:active:focus {
-	outline:thin dotted;
-	outline:5px auto -webkit-focus-ring-color;
-	outline-offset:-2px;
+// btn-white
+.btn-white {
+	@include btn-variant($btn-white-border-color, $btn-white-bg-color, $btn-white-font-color);
 }
-.button:active {
-	background-image:none;
-	outline:0;
-	-webkit-box-shadow:inset 0 3px 5px rgba(0, 0, 0, .125);
-	box-shadow:inset 0 3px 5px rgba(0, 0, 0, .125);
+// btn red
+.btn-red {
+	@include btn-variant($btn-red-border-color, $btn-red-bg-color, $btn-red-font-color);
 }
-.button[disabled],
-fieldset[disabled] .button {
-	cursor:not-allowed;
-	filter:alpha(opacity=65);
-	-webkit-box-shadow:none;
-	box-shadow:none;
-	opacity:.65;
+// btn gray
+
+.btn-gray {
+	@include btn-variant($btn-gray-border-color, $btn-gray-bg-color, $btn-gray-font-color);
 }
-/* Button white */
-.button-white {
-	border-color:#ccc #aaa #aaa #ccc;
-	background-color:#fff;
-	color:#393939;
+// btn size
+.btn-sm {
+	@include btn-size($btn-padding-vertical-sm, $btn-padding-horizon-sm, 11px);
 }
-.button-white:hover,
-.button-white:focus,
-.button-white:active {
-	border-color:#bfbfbf #9b9b9b #9b9b9b #bfbfbf;
-	background-color:#f9f9f9;
-	color:#393939;
-	text-decoration:none;
+.btn-lg {
+	@include btn-size($btn-padding-vertical-lg, $btn-padding-horizon-lg, 13px);
 }
-.button-white[desabled],
-fieldset[disabled] .button-white,
-.button-white[disabled]:hover,
-fieldset[disabled] .button-white:hover,
-.button-white[disabled]:focus,
-fieldset[disabled] .button-white:focus,
-.button-white[disabled]:active,
-fieldset[disabled] .button-white:active {
-	background-color:#fff;
-	border-color:#ccc #aaa #aaa #ccc;
+.btn-xl {
+	@include btn-size($btn-padding-vertical-xl, $btn-padding-horizon-xl, 14px);
 }
-/* Button red */
-.button-red {
-	border-color:#eb0a00 #c20800 #c20800 #eb0a00;
-	background-color:#ff140a;
-	color:#fff;
-}
-.button-red:hover,
-.button-red:focus,
-.button-red:active {
-	border-color:#dd0900 #b30700 #b30700 #dd0900;
-	background-color:#f7130a;
-	color:#fff;
-	text-decoration:none;
-}
-.button-red[desabled],
-fieldset[disabled] .button-red,
-.button-red[disabled]:hover,
-fieldset[disabled] .button-red:hover,
-.button-red[disabled]:focus,
-fieldset[disabled] .button-red:focus,
-.button-red[disabled]:active,
-fieldset[disabled] .button-red:active {
-	background-color:#fe1409;
-	border-color:#eb0a00 #c20800 #c20800 #eb0a00;
-}
-/* Button gray */
-.button-gray {
-	border-color:#5e5e5e #444 #444 #5e5e5e;
-	background-color:#666;
-	color:#fff;
-}
-.button-gray:hover,
-.button-gray:focus,
-.button-gray:active {
-	border-color:#505050 #363636 #363636 #505050;
-	background-color:#5e5e5e;
-	color:#fff;
-	text-decoration:none;
-}
-.button-gray[desabled],
-fieldset[disabled] .button-gray,
-.button-gray[disabled]:hover,
-fieldset[disabled] .button-gray:hover,
-.button-gray[disabled]:focus,
-fieldset[disabled] .button-gray:focus,
-.button-gray[disabled]:active,
-fieldset[disabled] .button-gray:active {
-	background-color:#666;
-	border-color:#5e5e5e #444 #444 #5e5e5e;
-}
-/* Button size */
-.button-xs {
-	padding:4px 7px 1px;
-	*padding:2px 6px 0;
-	line-height:13px;
-}
-.button-md {
-	padding:9px 25px 8px;
-	*padding:8px 24px 6px;
-}
-.button-lg {
-	padding:12px 31px;
-	*padding:11px 30px 10px;
-}
-.button-xl {
-	min-width:200px;
-	padding:18px 0;
-	*padding:17px 0 16px;
-}
-/* Button text */
-.button .text-button {
+// btn text
+.btn .text-btn {
 	overflow:hidden;
 	float:left;
 	text-indent:-9999px;
 }
-.button-md .text-button {
+.btn-md .text-btn {
 	width:24px;
 	height:14px;
 	background:url(http://image.wemakeprice.com/images/global/text-button-md.png) no-repeat;
 }
-.button-lg .text-button {
+.btn-lg .text-btn {
 	width:27px;
 	height:15px;
 	background:url(http://image.wemakeprice.com/images/global/text-button-lg.png) no-repeat;
 }
-.button-xl .text-button {
+.btn-xl .text-btn {
 	float:none;
 	height:17px;
 	margin:0 auto;
 	background:url(http://image.wemakeprice.com/images/global/text-button-xl.png) no-repeat;
 }
-.button .text-confirm {
+.btn .text-confirm {
 	/* 확인 white */
 	background-position:0 0;
 }
-.button-white .text-confirm {
+.btn-white .text-confirm {
 	/* 확인 gray */
 	background-position:-60px 0;
 }
-.button .text-cancel {
+.btn .text-cancel {
 	/* 취소 white */
 	background-position:0 -20px;
 }
-.button-white .text-cancel {
+.btn-white .text-cancel {
 	/* 취소 gray */
 	background-position:-60px -20px;
 }
-.button .text-inquiry {
+.btn .text-inquiry {
 	/* 조회 white */
 	background-position:0 -40px;
 }
-.button-white .text-inquiry {
+.btn-white .text-inquiry {
 	/* 조회 gray */
 	background-position:-60px -40px;
 }
-/* Button group */
+/* btn group */
 .wrap-btn-group {
 	/* 센터정렬 버튼 그룹 */
 	position:relative;
 	text-align:center;
 }
-.wrap-btn-group .button {
+.wrap-btn-group .btn {
 	margin-left:1px;
 	*margin-left:5px;
 }
-.wrap-btn-group .button:first-child {
+.wrap-btn-group .btn:first-child {
 	margin-left:0;
 }
-.button-group {
+.btn-group {
 	display:inline-block;
 }

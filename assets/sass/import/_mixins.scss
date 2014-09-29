@@ -42,6 +42,11 @@
 	text-overflow:ellipsis;
 	white-space:nowrap;
 }
+@mixin tab-focus() {
+	outline: thin dotted;
+	outline: 5px auto -webkit-focus-ring-color;
+	outline-offset: -2px;
+}
 
 // ** Box sizing
 @mixin box-sizing($boxmodel) {
@@ -57,7 +62,6 @@
 	$opacity-ie:($opacity * 100);
 	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$opacity-ie})"; // IE8
 	filter:alpha(opacity=#{$opacity-ie}); // IE5-7
-	*zoom:1;
 }
 
 // ** Box sizing

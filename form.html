@@ -17,6 +17,10 @@
 		box-sizing:border-box;
 		padding:20px;
 	}
+	body > div,
+	body > fieldset {
+		margin-bottom:5px;
+	}
 </style>
 </head>
 <body>
@@ -232,6 +236,20 @@
 
 <!-- Help-block -->
 <h2 style="margin-top:40px;">Help-block</h2>
+<div class="clearfix">
+	<div class="full-text-field">
+		<input type="text" class="text-field">
+	</div>
+	<p class="help-block">.help-block(하단에 들어가는 도움말)</p>
+</div>
+<div class="clearfix">
+	<input type="text" class="text-field">
+	<span class="help-block">span.help-block(옆으로 들어가는 도움말)</span>
+</div>
+<div class="clearfix">
+	<input type="text" class="text-field">
+	<span class="help-block help-block-sm">span.help-block(옆으로 들어가는 도움말)</span>
+</div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="assets/js/default.js"></script>

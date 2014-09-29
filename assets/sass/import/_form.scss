@@ -36,9 +36,7 @@ select:-moz-focusring {
 input[type="file"]:focus,
 input[type="radio"]:focus,
 input[type="checkbox"]:focus {
-	outline:thin dotted;
-	outline:5px auto -webkit-focus-ring-color;
-	outline-offset:-2px;
+	@include tab-focus();
 }
 // full-text-field
 .full-text-field {
@@ -55,7 +53,6 @@ input[type="checkbox"]:focus {
 // text-field default setting
 .text-field {
 	display:inline-block;
-	overflow:hidden;
 	width:$text-field-width;
 	height:$text-field-line-height;
 	padding:$text-field-vertical-padding $text-field-horizontal-padding ($text-field-vertical-padding - 2);
@@ -208,13 +205,7 @@ select.input-lg {
 select.input-xl {
 	height:$text-field-select-height + 8;
 }
-/* Input size large*/
-.input-lg,
-.form-horizontal .form-group-lg .text-field {
-	// padding-top:12px;
-	// padding-bottom:9px;
-}
-/* IE8 hack - selectbox text vertical align */
+// IE8 hack - selectbox text vertical align
 @media \0screen {
 	select {
 		&.input-sm {
@@ -244,62 +235,24 @@ select.input-xl {
 		}
 	}
 }
-/* Form group */
-.form-group {
-	*zoom:1;
-}
-.form-group:before,
-.form-group:after {
-	display:table;
-	content:'';
-}
-.form-group:after {
-	clear:both;
-}
-.form-group .wrap-text-field {
-	padding-right:0;
-}
-.form-group .text-field {
-	display:inline-block;
-	width:auto;
-}
-.form-group .text-hyphen {
-	display:inline-block;
-	min-width:6px;
-	padding-left:1px;
-	color:#666;
-	text-align:center;
-}
 .help-block {
 	display:block;
-	margin-top:8px;
+	margin-top:5px;
 	color:#888;
-}
-span.help-block {
-	display:inline;
-	margin-top:0;
-}
-.help-block-sm {
-	font-size:11px;
-}
-/* Form horizontal */
-.form-horizontal .control-label {
-	padding-top:5px;
-}
-.form-horizontal .form-group-md  .control-label {
-	padding-top:9px;
-}
-.form-horizontal .form-group-lg  .control-label {
-	padding-top:13px;
-}
-.form-horizontal .form-field-full .wrap-text-field {
-	overflow:hidden;
-	float:none;
-	width:auto;
-	padding-right:20px;
-}
-.form-horizontal .form-field-full .wrap-text-field .text-field {
-	width:100%;
+	// inline help block
+	@at-root {
+		span#{&} {
+			display:inline;
+			margin-top:0;
+		}
+	}
+	// small font-size help block
+	&#{-sm} {
+		font-size:11px;
+	}
+	.text-field + & {
+		margin-left:6px;
+	}
 }
 /* Form padding default */
 .text-field + .button {

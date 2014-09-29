@@ -93,6 +93,15 @@ button {
   line-height: 1.5;
   color: #393939;
 }
+.mac body, .mac
+th, .mac
+td, .mac
+input, .mac
+select, .mac
+textarea, .mac
+button {
+  font-family: "Apple SD Gothic NEO", helvetica, sans-serif;
+}
 
 body {
   min-width: initial !important;
@@ -107,13 +116,13 @@ table {
 }
 
 a {
-  color: #4183c4;
+  color: #393939;
   text-decoration: none;
 }
 
 a:hover,
 a:focus {
-  color: #3269a0;
+  color: #202020;
   text-decoration: underline;
 }
 
@@ -1476,7 +1485,6 @@ input[type="checkbox"]:focus {
 
 .text-field {
   display: inline-block;
-  overflow: hidden;
   width: 200px;
   height: 18px;
   padding: 5px 9px 3px;
@@ -1619,8 +1627,6 @@ select.input-xl {
   height: 36px;
 }
 
-/* Input size large*/
-/* IE8 hack - selectbox text vertical align */
 @media \0screen {
   select.input-sm {
     padding-top: 2px;
@@ -1640,75 +1646,20 @@ select.input-xl {
     padding-bottom: 8px;
   }
 }
-/* Form group */
-.form-group {
-  *zoom: 1;
-}
-
-.form-group:before,
-.form-group:after {
-  display: table;
-  content: '';
-}
-
-.form-group:after {
-  clear: both;
-}
-
-.form-group .wrap-text-field {
-  padding-right: 0;
-}
-
-.form-group .text-field {
-  display: inline-block;
-  width: auto;
-}
-
-.form-group .text-hyphen {
-  display: inline-block;
-  min-width: 6px;
-  padding-left: 1px;
-  color: #666;
-  text-align: center;
-}
-
 .help-block {
   display: block;
-  margin-top: 8px;
+  margin-top: 5px;
   color: #888;
 }
-
 span.help-block {
   display: inline;
   margin-top: 0;
 }
-
 .help-block-sm {
   font-size: 11px;
 }
-
-/* Form horizontal */
-.form-horizontal .control-label {
-  padding-top: 5px;
-}
-
-.form-horizontal .form-group-md .control-label {
-  padding-top: 9px;
-}
-
-.form-horizontal .form-group-lg .control-label {
-  padding-top: 13px;
-}
-
-.form-horizontal .form-field-full .wrap-text-field {
-  overflow: hidden;
-  float: none;
-  width: auto;
-  padding-right: 20px;
-}
-
-.form-horizontal .form-field-full .wrap-text-field .text-field {
-  width: 100%;
+.text-field + .help-block {
+  margin-left: 6px;
 }
 
 /* Form padding default */
@@ -1717,227 +1668,201 @@ span.help-block {
   *margin-left: 5px;
 }
 
-/* Button default */
-.button {
+.btn {
   display: inline-block;
-  *margin-left: 4px;
-  padding: 4px 7px 1px;
-  *padding: 2px 6px 0;
+  padding: 5px 14px 3px;
+  font-size: 12px;
   border-width: 1px;
   border-style: solid;
-  border-radius: 2px;
-  font-size: 11px;
+  border-color: transparent;
+  border-radius: 3px;
+  font-weight: bold;
+  font-size: 12px;
+  text-align: center;
+  vertical-align: middle;
   line-height: 18px;
   white-space: nowrap;
+  -webkit-transition: border 0.25s ease, background-color 0.25s ease;
+  -moz-transition: border 0.25s ease, background-color 0.25s ease;
+  -o-transition: border 0.25s ease, background-color 0.25s ease;
+  transition: border 0.25s ease, background-color 0.25s ease;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
 }
-
-.button:focus,
-.button:active:focus {
+button.btn {
+  *padding: 3px 13px 2px;
+}
+.btn:focus:focus, .btn:active:focus {
   outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
-
-.button:active {
+.btn:active, .btn.active {
   background-image: none;
   outline: 0;
   -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
   box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
 }
-
-.button[disabled],
-fieldset[disabled] .button {
-  cursor: not-allowed;
-  filter: alpha(opacity=65);
+.btn[disabled], .btn.disabled, fieldset[disabled] .btn {
   -webkit-box-shadow: none;
   box-shadow: none;
-  opacity: .65;
+  cursor: not-allowed;
+  opacity: 0.65;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=65)";
+  filter: alpha(opacity=65);
+  pointer-events: none;
+}
+.textfield + button.btn,
+button.btn + button.btn {
+  *margin-left: 4px;
 }
 
-/* Button white */
-.button-white {
-  border-color: #ccc #aaa #aaa #ccc;
+.btn-white {
+  border-color: #ccc #a6a6a6 #a6a6a6 #ccc;
   background-color: #fff;
   color: #393939;
 }
-
-.button-white:hover,
-.button-white:focus,
-.button-white:active {
-  border-color: #bfbfbf #9b9b9b #9b9b9b #bfbfbf;
-  background-color: #f9f9f9;
+.btn-white:hover, .btn-white:focus, .btn-white:active {
+  border-color: #bfbfbf #999999 #999999 #bfbfbf;
+  background-color: #f2f2f2;
   color: #393939;
   text-decoration: none;
 }
-
-.button-white[desabled],
-fieldset[disabled] .button-white,
-.button-white[disabled]:hover,
-fieldset[disabled] .button-white:hover,
-.button-white[disabled]:focus,
-fieldset[disabled] .button-white:focus,
-.button-white[disabled]:active,
-fieldset[disabled] .button-white:active {
+.btn-white[disabled], .btn-white[disabled]:hover, .btn-white[disabled]:focus, .btn-white[disabled]:active, .btn-white.disabled, .btn-white.disabled:hover, .btn-white.disabled:focus, .btn-white.disabled:active, fieldset[disabled] .btn-white, fieldset[disabled] .btn-white:hover, fieldset[disabled] .btn-white:focus, fieldset[disabled] .btn-white:active {
   background-color: #fff;
-  border-color: #ccc #aaa #aaa #ccc;
+  border-color: #ccc;
 }
 
-/* Button red */
-.button-red {
-  border-color: #eb0a00 #c20800 #c20800 #eb0a00;
+.btn-red {
+  border-color: #eb0a00 #9f0700 #9f0700 #eb0a00;
   background-color: #ff140a;
   color: #fff;
 }
-
-.button-red:hover,
-.button-red:focus,
-.button-red:active {
-  border-color: #dd0900 #b30700 #b30700 #dd0900;
-  background-color: #f7130a;
+.btn-red:hover, .btn-red:focus, .btn-red:active {
+  border-color: #d20900 #850600 #850600 #d20900;
+  background-color: #f00a00;
   color: #fff;
   text-decoration: none;
 }
-
-.button-red[desabled],
-fieldset[disabled] .button-red,
-.button-red[disabled]:hover,
-fieldset[disabled] .button-red:hover,
-.button-red[disabled]:focus,
-fieldset[disabled] .button-red:focus,
-.button-red[disabled]:active,
-fieldset[disabled] .button-red:active {
-  background-color: #fe1409;
-  border-color: #eb0a00 #c20800 #c20800 #eb0a00;
+.btn-red[disabled], .btn-red[disabled]:hover, .btn-red[disabled]:focus, .btn-red[disabled]:active, .btn-red.disabled, .btn-red.disabled:hover, .btn-red.disabled:focus, .btn-red.disabled:active, fieldset[disabled] .btn-red, fieldset[disabled] .btn-red:hover, fieldset[disabled] .btn-red:focus, fieldset[disabled] .btn-red:active {
+  background-color: #ff140a;
+  border-color: #eb0a00;
 }
 
-/* Button gray */
-.button-gray {
-  border-color: #5e5e5e #444 #444 #5e5e5e;
+.btn-gray {
+  border-color: #5e5e5e #383838 #383838 #5e5e5e;
   background-color: #666;
   color: #fff;
 }
-
-.button-gray:hover,
-.button-gray:focus,
-.button-gray:active {
-  border-color: #505050 #363636 #363636 #505050;
-  background-color: #5e5e5e;
+.btn-gray:hover, .btn-gray:focus, .btn-gray:active {
+  border-color: #515151 #2b2b2b #2b2b2b #515151;
+  background-color: #595959;
   color: #fff;
   text-decoration: none;
 }
-
-.button-gray[desabled],
-fieldset[disabled] .button-gray,
-.button-gray[disabled]:hover,
-fieldset[disabled] .button-gray:hover,
-.button-gray[disabled]:focus,
-fieldset[disabled] .button-gray:focus,
-.button-gray[disabled]:active,
-fieldset[disabled] .button-gray:active {
+.btn-gray[disabled], .btn-gray[disabled]:hover, .btn-gray[disabled]:focus, .btn-gray[disabled]:active, .btn-gray.disabled, .btn-gray.disabled:hover, .btn-gray.disabled:focus, .btn-gray.disabled:active, fieldset[disabled] .btn-gray, fieldset[disabled] .btn-gray:hover, fieldset[disabled] .btn-gray:focus, fieldset[disabled] .btn-gray:active {
   background-color: #666;
-  border-color: #5e5e5e #444 #444 #5e5e5e;
+  border-color: #5e5e5e;
 }
 
-/* Button size */
-.button-xs {
-  padding: 4px 7px 1px;
-  *padding: 2px 6px 0;
-  line-height: 13px;
+.btn-sm {
+  padding: 3px 10px 1px;
+  font-size: 11px;
+}
+button.btn-sm {
+  *padding: 1px 9px 0px;
 }
 
-.button-md {
-  padding: 9px 25px 8px;
-  *padding: 8px 24px 6px;
+.btn-lg {
+  padding: 7px 18px 5px;
+  font-size: 13px;
+}
+button.btn-lg {
+  *padding: 5px 17px 4px;
 }
 
-.button-lg {
-  padding: 12px 31px;
-  *padding: 11px 30px 10px;
+.btn-xl {
+  padding: 9px 22px 7px;
+  font-size: 14px;
+}
+button.btn-xl {
+  *padding: 7px 21px 6px;
 }
 
-.button-xl {
-  min-width: 200px;
-  padding: 18px 0;
-  *padding: 17px 0 16px;
-}
-
-/* Button text */
-.button .text-button {
+.btn .text-btn {
   overflow: hidden;
   float: left;
   text-indent: -9999px;
 }
 
-.button-md .text-button {
+.btn-md .text-btn {
   width: 24px;
   height: 14px;
   background: url(http://image.wemakeprice.com/images/global/text-button-md.png) no-repeat;
 }
 
-.button-lg .text-button {
+.btn-lg .text-btn {
   width: 27px;
   height: 15px;
   background: url(http://image.wemakeprice.com/images/global/text-button-lg.png) no-repeat;
 }
 
-.button-xl .text-button {
+.btn-xl .text-btn {
   float: none;
   height: 17px;
   margin: 0 auto;
   background: url(http://image.wemakeprice.com/images/global/text-button-xl.png) no-repeat;
 }
 
-.button .text-confirm {
+.btn .text-confirm {
   /* 확인 white */
   background-position: 0 0;
 }
 
-.button-white .text-confirm {
+.btn-white .text-confirm {
   /* 확인 gray */
   background-position: -60px 0;
 }
 
-.button .text-cancel {
+.btn .text-cancel {
   /* 취소 white */
   background-position: 0 -20px;
 }
 
-.button-white .text-cancel {
+.btn-white .text-cancel {
   /* 취소 gray */
   background-position: -60px -20px;
 }
 
-.button .text-inquiry {
+.btn .text-inquiry {
   /* 조회 white */
   background-position: 0 -40px;
 }
 
-.button-white .text-inquiry {
+.btn-white .text-inquiry {
   /* 조회 gray */
   background-position: -60px -40px;
 }
 
-/* Button group */
+/* btn group */
 .wrap-btn-group {
   /* 센터정렬 버튼 그룹 */
   position: relative;
   text-align: center;
 }
 
-.wrap-btn-group .button {
+.wrap-btn-group .btn {
   margin-left: 1px;
   *margin-left: 5px;
 }
 
-.wrap-btn-group .button:first-child {
+.wrap-btn-group .btn:first-child {
   margin-left: 0;
 }
 
-.button-group {
+.btn-group {
   display: inline-block;
 }
 
