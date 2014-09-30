@@ -1,3 +1,4 @@
+// >> IE7은 지원 불가
 // ** Variables
 $grid-columns: 12 !default;
 $grid-columns-ie7: ($grid-columns / 4);
@@ -136,16 +137,16 @@ $grid-columns-ie7: ($grid-columns / 4);
 		@if ($type == width){
 			.col-#{$class}-#{$index} {
 				width:$basic-percent;
-				@if ($index % $grid-columns-ie7 == 0 and $index != $grid-columns ) {
-					*width:$basic-percent - 0.00001;
-				}
+				// @if ($index % $grid-columns-ie7 == 0 and $index != $grid-columns ) {
+				// 	*width:$basic-percent - 0.1;
+				// }
 			}
 		} @else {
 			.col-#{$class}-#{$type}-#{$index} {
 				#{$type-property}:$basic-percent;
-				@if ($index % $grid-columns-ie7 == 0 and $index != $grid-columns) {
-					*#{$type-property}:$basic-percent - 0.00001;
-				}
+				// @if ($index % $grid-columns-ie7 == 0 and $index != $grid-columns) {
+				// 	*#{$type-property}:$basic-percent - 0.1;
+				// }
 			}
 		}
 	}
@@ -164,7 +165,6 @@ $grid-columns-ie7: ($grid-columns / 4);
 }
 
 // ** Grid system
-
 .row {
 	@include clearfix();
 }

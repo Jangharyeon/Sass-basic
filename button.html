@@ -12,15 +12,21 @@
 <script src="assets/js/_lib/respond.min.js"></script>
 <![endif]-->
 <style>
-	body {
-		-webkit-box-sizing:border-box;
-		box-sizing:border-box;
-		padding:20px;
-	}
-	body > div,
-	body > fieldset {
-		margin-bottom:5px;
-	}
+body {
+	-webkit-box-sizing:border-box;
+	box-sizing:border-box;
+	padding:20px;
+}
+body > div,
+body > fieldset {
+	margin-bottom:5px;
+}
+h1 {
+	margin-bottom:-40px;
+}
+h2 {
+	margin-top:40px;
+}
 </style>
 </head>
 <body>
@@ -97,6 +103,30 @@
 	<button type="button" class="btn btn-white btn-xl">확인</button>
 	<button type="button" class="btn btn-red btn-xl">확인</button>
 	<button type="button" class="btn btn-gray btn-xl">확인</button>
+</div>
+<div class="clearfix">
+	<button type="button" class="btn btn-white btn-xxl">확인</button>
+	<button type="button" class="btn btn-red btn-xxl">확인</button>
+	<button type="button" class="btn btn-gray btn-xxl">확인</button>
+</div>
+
+<!-- Button tag -->
+<h2>Button tag</h2>
+<div class="clearfix">
+	<a href="#none" class="btn btn-white">Link</a>
+	<button type="button" class="btn btn-white">button.btn.btn-white</button>
+	<input type="button" class="btn btn-white" value="input[type=button].btn.btn-white">
+	<input type="submit" class="btn btn-white" value="input[type=submit].btn.btn-white">
+</div>
+
+<!-- Center btn -->
+<h2>Center btn</h2>
+<p>.wrap-btn-group > span.btn-group .btn</p>
+<div class="center-btn-group">
+	<span class="btn-group">
+		<button type="button" class="btn btn-white btn-xl">취소</button>
+		<button type="button" class="btn btn-red btn-xl">확인</button>
+	</span>
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
