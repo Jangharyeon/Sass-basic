@@ -227,6 +227,10 @@ a:focus {
   color: #ff140a !important;
 }
 
+.text-link {
+  color: #428bca !important;
+}
+
 .box-scroll-y {
   overflow-x: hidden;
   overflow-y: auto;
