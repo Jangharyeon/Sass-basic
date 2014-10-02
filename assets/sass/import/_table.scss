@@ -1,9 +1,37 @@
 // ** Variables
+// Default
 $table-cell-vertical-padding: 10px !default;
 $table-cell-horizontal-padding: 10px !default;
 $table-cell-border-color: #dedede !default;
 $th-bg-color: #f7f7f7 !default;
 $td-bg-color: #fff !default;
+
+// Table row bg color
+$table-bg-gray: #f7f7f7 !default;
+$table-bg-green: #dff0d8 !default;
+$table-bg-blue: #d9edf7 !default;
+$table-bg-yellow: #fcf8e3 !default;
+$table-bg-red: #f2dede !default;
+
+// ** Mixins
+// Table row bg color
+@mixin table-row-color($state, $bg-color) {
+	.table {
+		.#{$state},
+		.#{$state} th,
+		.#{$state} td {
+			background-color:$bg-color;
+		}
+	}
+	.table-hover {
+		.#{$state}:hover th,
+		.#{$state}:hover td,
+		th.#{$state}:hover,
+		td.#{$state}:hover {
+			background-color:darken($bg-color, 3%);
+		}
+	}
+}
 
 // ** Table style
 // Table default
@@ -64,28 +92,6 @@ $td-bg-color: #fff !default;
 }
 
 // Table row bg color
-$table-bg-gray: #f7f7f7 !default;
-$table-bg-green: #dff0d8 !default;
-$table-bg-blue: #d9edf7 !default;
-$table-bg-yellow: #fcf8e3 !default;
-$table-bg-red: #f2dede !default;
-@mixin table-row-color($state, $bg-color) {
-	.table {
-		.#{$state},
-		.#{$state} th,
-		.#{$state} td {
-			background-color:$bg-color;
-		}
-	}
-	.table-hover {
-		.#{$state}:hover th,
-		.#{$state}:hover td,
-		th.#{$state}:hover,
-		td.#{$state}:hover {
-			background-color:darken($bg-color, 3%);
-		}
-	}
-}
 @include table-row-color('row-gray', $table-bg-gray);
 @include table-row-color('row-green', $table-bg-green);
 @include table-row-color('row-blue', $table-bg-blue);
