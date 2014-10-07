@@ -2,6 +2,8 @@
 // Default
 $table-cell-vertical-padding: 10px !default;
 $table-cell-horizontal-padding: 10px !default;
+$table-top-border-color: #666 !default;
+$table-bottom-border-color: #aaa !default;
 $table-cell-border-color: #dedede !default;
 $th-bg-color: #f7f7f7 !default;
 $td-bg-color: #fff !default;
@@ -38,7 +40,7 @@ $table-bg-red: #f2dede !default;
 .wrap-table {
 	border-width:1px 0;
 	border-style:solid;
-	border-color:#666 transparent #aaa;
+	border-color:$table-top-border-color transparent $table-bottom-border-color;
 }
 .table {
 	th,
@@ -84,10 +86,15 @@ $table-bg-red: #f2dede !default;
 }
 
 // Table hover
-.table-hover tbody tr {
-	&:hover th,
-	&:hover td {
-		background-color:darken($td-bg-color, 3%);
+.table-hover {
+	tbody,
+	tfoot {
+		tr {
+			&:hover th,
+			&:hover td {
+				background-color:darken($td-bg-color, 3%);
+			}
+		}
 	}
 }
 
