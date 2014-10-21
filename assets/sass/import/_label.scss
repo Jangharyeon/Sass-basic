@@ -1,0 +1,21 @@
+// ** Mixins
+@mixin label($bg-color, $color) {
+	display:inline;
+	padding:3px 2px 0;
+	*padding-bottom:1px;
+	border-radius:2px;
+	background-color:$bg-color;
+	font-size:inherit;
+	color:$color;
+	text-align:center;
+	line-height:1;
+	white-space:nowrap;
+}
+
+// ** Table style
+.label-gray {
+	@include label(#b2b2b2, #fff);
+}
+.label-red {
+	@include label(#ff140a, #fff);
+}

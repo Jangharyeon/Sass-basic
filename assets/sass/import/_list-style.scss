@@ -33,7 +33,7 @@ $list-padding-left: 7px !default;
 	@include background-image('ico-dot-light-gray.png');
 	color:$color-gray-light;
 }
-.ico-dot-sm,
+.dot-sm,
 .list-dot-sm > li {
 	background-position:0 6px;
 	font-size:$font-size-sm;

@@ -71,30 +71,18 @@
 
 // Box scroll
 .box-scroll-y {
-	overflow-x:hidden;
-	overflow-y:auto;
+	overflow: {
+		x:hidden;
+		y:auto;
+	}
 	position:relative;
 }
 .box-scroll-x {
-	overflow-x:auto;
-	overflow-y:hidden;
+	overflow: {
+		x:auto;
+		y:hidden;
+	}
 	position:relative;
-}
-
-/* ==Label== */
-.label {
-	display:inline;
-	padding:3px 2px 0;
-	*padding-bottom:1px;
-	border-radius:2px;
-	font-size:inherit;
-	color:#fff;
-	text-align:center;
-	line-height:1;
-	white-space:nowrap;
-}
-.label-gray {
-	background-color:#b2b2b2;
 }
 
 /* ==Tabs== */
