@@ -1,3 +1,3 @@
 Sass-basic
 ==========
-http://jangharyun.github.io/Sass-basic/
+http://jangharyeon.github.io/Sass-basic/
